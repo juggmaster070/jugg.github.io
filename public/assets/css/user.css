@@ -1,0 +1,958 @@
+/* Custom User Styles for Modified Jugg Template */
+
+/* Change font family to Poppins */
+body, html {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* ============================================*/
+/* Light/Dark Mode Variables */
+/* ============================================*/
+:root {
+  /* Dark mode (default) */
+  --bg-primary: #000000;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #333333;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-tertiary: #999999;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-color-light: rgba(255, 255, 255, 0.2);
+  --accent-primary: #ff6b6b;
+  --accent-secondary: #4ecdc4;
+  --accent-tertiary: #ffe66d;
+}
+
+[data-theme="light"] {
+  /* Light mode */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #e0e0e0;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-tertiary: #666666;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --border-color-light: rgba(0, 0, 0, 0.2);
+  --accent-primary: #ff6b6b;
+  --accent-secondary: #4ecdc4;
+  --accent-tertiary: #ffe66d;
+}
+
+/* Change primary color scheme - using black theme with vibrant accents */
+:root {
+  --custom-primary: #ff6b6b;
+  --custom-secondary: #4ecdc4;
+  --custom-accent: #ffe66d;
+  --custom-dark: #000000;
+  --custom-light: #1a1a1a;
+}
+
+/* Update hero section background - uses theme variables */
+.bg-dark {
+  background: var(--bg-primary) !important;
+}
+
+/* Update button colors - vibrant colors that pop on black */
+.btn-success {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%) !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+  background: linear-gradient(135deg, #ee5a6f 0%, #ff6b6b 100%) !important;
+}
+
+.btn-outline-light {
+  border: 2px solid var(--text-primary) !important;
+  color: var(--text-primary) !important;
+  background: transparent !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-outline-light:hover {
+  background: var(--text-primary) !important;
+  color: var(--bg-primary) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .btn-outline-light:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.btn-dark {
+  background: var(--bg-secondary) !important;
+  border: 2px solid var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-dark:hover {
+  background: var(--bg-tertiary) !important;
+  border-color: var(--bg-tertiary) !important;
+  transform: translateY(-2px);
+}
+
+/* Add smooth animations - moved to entrance animations section below */
+
+/* Update text colors for better contrast on black */
+.text-success {
+  color: #ff6b6b !important;
+}
+
+.text-primary {
+  color: #4ecdc4 !important;
+}
+
+.text-white {
+  color: var(--text-primary) !important;
+}
+
+.text-gray {
+  color: var(--text-secondary) !important;
+}
+
+/* Add hover effects to cards */
+.swiper-slide {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.swiper-slide:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .swiper-slide:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Fix logo images visibility in light mode */
+.swiper-slide img {
+  transition: filter 1s ease-out, opacity 1s ease-out;
+}
+
+/* Invert logo images in light mode to make them visible */
+[data-theme="light"] .swiper-slide img {
+  filter: invert(1) brightness(0.8);
+}
+
+/* Ensure logos are visible in dark mode */
+[data-theme="dark"] .swiper-slide img {
+  filter: none;
+}
+
+/* Update navbar styling - uses theme variables */
+.navbar-dark {
+  background: var(--bg-primary) !important;
+  backdrop-filter: blur(10px);
+  transition: background-color 1s ease-out, 
+              border-color 1s ease-out;
+  border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="light"] .navbar-dark {
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Prevent flash of unstyled content */
+html {
+  color-scheme: dark light;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* Add pulse animation to CTA buttons */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.btn-success:focus {
+  animation: pulse 2s infinite;
+}
+
+/* Update link colors for black background */
+a {
+  color: #4ecdc4;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #ff6b6b;
+}
+
+.nav-link {
+  color: var(--text-primary) !important;
+  opacity: 0.9;
+  transition: all 0.3s ease !important;
+}
+
+.nav-link:hover {
+  color: var(--accent-primary) !important;
+  opacity: 1;
+}
+
+/* Fix navbar toggler icon visibility */
+.navbar-toggler i.text-white {
+  color: var(--text-primary) !important;
+}
+
+/* Ensure navbar text is always visible */
+.navbar-nav .nav-link {
+  color: var(--text-primary) !important;
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--accent-primary) !important;
+}
+
+/* Enhance section spacing */
+section {
+  padding: 4rem 0;
+}
+
+/* Update footer background - uses theme variables */
+section:last-of-type .container {
+  background: var(--bg-primary);
+  padding: 3rem;
+  border-radius: 10px;
+  border-top: 1px solid var(--border-color);
+  transition: background-color 1s ease-out,
+              border-color 1s ease-out;
+}
+
+/* X Logo styling */
+.x-logo {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  display: inline-block;
+}
+
+.x-logo-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid var(--text-primary);
+  position: relative;
+  background: transparent;
+  transition: border-color 0.3s ease;
+}
+
+.x-logo-x {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+}
+
+.x-logo-x::before,
+.x-logo-x::after {
+  content: '';
+  position: absolute;
+  background: var(--text-primary);
+  width: 3px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: background 0.3s ease;
+}
+
+.x-logo-x::before {
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.x-logo-x::after {
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+/* Large logo for footer */
+.x-logo-large {
+  width: 80px;
+  height: 80px;
+}
+
+.x-logo-large .x-logo-circle {
+  border-width: 4px;
+}
+
+/* Update body background - uses theme variables with gentle transition */
+body {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  transition: background-color 1s ease-out, color 1s ease-out !important;
+}
+
+/* Smooth theme transition animations for all elements - gentler timing */
+* {
+  transition: background-color 1s ease-out, 
+              color 1s ease-out, 
+              border-color 1s ease-out,
+              box-shadow 1s ease-out !important;
+}
+
+/* Exclude certain elements from theme transitions */
+img, video, svg, canvas, iframe {
+  transition: opacity 1s ease-out !important;
+}
+
+/* Subtle fade animation for theme change - much gentler */
+@keyframes themeFade {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Apply very subtle fade animation during theme transition */
+html[data-theme-transitioning="true"] body {
+  animation: themeFade 0.5s ease-in-out;
+}
+
+html[data-theme-transitioning="true"] * {
+  animation: themeFade 0.5s ease-in-out;
+}
+
+/* Update section backgrounds */
+section {
+  background-color: var(--bg-primary);
+  transition: background-color 1s ease-out;
+}
+
+section.bg-dark {
+  background: var(--bg-primary) !important;
+}
+
+/* Update card backgrounds - uses theme variables */
+.swiper-slide.bg-white {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+  transition: background-color 1s ease-out,
+              border-color 1s ease-out;
+}
+
+.swiper-slide.bg-white .text-black {
+  color: var(--text-primary) !important;
+}
+
+.swiper-slide.bg-white h4 {
+  color: var(--text-primary) !important;
+}
+
+/* Update form controls - uses theme variables */
+.form-control {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-color-light) !important;
+  color: var(--text-primary) !important;
+  transition: background-color 1s ease-out,
+              border-color 1s ease-out,
+              color 1s ease-out;
+}
+
+.form-control:focus {
+  background: var(--bg-secondary) !important;
+  border-color: var(--accent-secondary) !important;
+  color: var(--text-primary) !important;
+  box-shadow: 0 0 0 0.2rem rgba(78, 205, 196, 0.25) !important;
+}
+
+.form-control::placeholder {
+  color: var(--text-tertiary) !important;
+}
+
+/* Update accordion styling - uses theme variables */
+.accordion-button {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  transition: background-color 1s ease-out,
+              color 1s ease-out;
+}
+
+.accordion-button:not(.collapsed) {
+  background: var(--bg-secondary) !important;
+  color: var(--accent-secondary) !important;
+}
+
+.accordion-body {
+  background: var(--bg-secondary) !important;
+  color: var(--text-secondary) !important;
+}
+
+/* Add animation to service cards */
+.col-md-4 {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.col-md-4:hover {
+  transform: translateY(-10px);
+}
+
+/* LinkedIn icon styling */
+.fab.fa-linkedin-in {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.fab.fa-linkedin-in:hover {
+  transform: scale(1.2);
+  color: #0077b5 !important;
+}
+
+/* Add smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero section text animation - now using fadeInLeft from entrance animations */
+
+/* Add fade-in animation to images */
+img {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+img:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+/* Update promo section background */
+.bg-holder {
+  opacity: 0.3;
+}
+
+/* Update text colors for dark sections */
+.text-dark {
+  color: var(--text-primary) !important;
+}
+
+/* Update border colors */
+.border-dark {
+  border-color: var(--border-color-light) !important;
+}
+
+.border-light {
+  border-color: var(--border-color-light) !important;
+}
+
+/* Update list item colors - already defined above with theme variables */
+
+/* Enhance visual hierarchy - uses theme variables */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  transition: color 1s ease-out;
+}
+
+/* Update blog section - uses theme variables */
+.text-gray {
+  color: var(--text-secondary) !important;
+}
+
+/* Update review section text - uses theme variables */
+.swiper-slide.bg-white small {
+  color: var(--text-tertiary) !important;
+}
+
+/* Update accordion border - uses theme variables */
+.accordion-header .border-bottom {
+  border-color: var(--border-color) !important;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: transparent;
+  border: 2px solid var(--accent-secondary);
+  color: var(--accent-secondary) !important;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease, transform 0.2s ease;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.theme-toggle span {
+  color: var(--accent-secondary) !important;
+  position: relative;
+  z-index: 2;
+}
+
+.theme-toggle i {
+  color: var(--accent-secondary) !important;
+  position: relative;
+  z-index: 2;
+}
+
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--accent-secondary);
+  opacity: 0.2;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.theme-toggle:hover::before {
+  width: 200px;
+  height: 200px;
+}
+
+.theme-toggle:hover {
+  background: var(--accent-secondary);
+  color: var(--bg-primary) !important;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+}
+
+.theme-toggle:hover span {
+  color: var(--bg-primary) !important;
+}
+
+.theme-toggle:hover i {
+  color: var(--bg-primary) !important;
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Add rotation animation to theme icon */
+.theme-toggle i {
+  font-size: 1rem;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), color 1s ease-out;
+  color: var(--accent-secondary) !important;
+}
+
+.theme-toggle:hover i {
+  transform: rotate(180deg);
+}
+
+/* Icon rotation on theme change - smoother */
+html[data-theme-transitioning="true"] .theme-toggle i {
+  animation: iconSpin 1s ease-in-out;
+}
+
+@keyframes iconSpin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* Update text colors for theme - already defined above, removing duplicate */
+
+/* Update border colors */
+.border-dark {
+  border-color: var(--border-color) !important;
+}
+
+.border-light {
+  border-color: var(--border-color-light) !important;
+}
+
+/* Update list item colors */
+.list-unstyled li {
+  color: var(--text-secondary);
+}
+
+/* Update offer list items */
+.offer-list-item {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Update gallery wrapper */
+.gallery-wraper {
+  background: var(--bg-primary);
+}
+
+/* Update promo section background */
+.bg-holder {
+  opacity: 0.3;
+}
+
+[data-theme="light"] .bg-holder {
+  opacity: 0.1;
+}
+
+/* Update btn-outline-dark - uses theme variables */
+.btn-outline-dark {
+  border: 2px solid var(--border-color-light) !important;
+  color: var(--text-primary) !important;
+  background: transparent !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-outline-dark:hover {
+  background: var(--text-primary) !important;
+  color: var(--bg-primary) !important;
+  border-color: var(--text-primary) !important;
+  transform: translateY(-2px);
+}
+
+/* Update promo section container - uses theme variables */
+.container.bg-dark {
+  background: var(--bg-primary) !important;
+  transition: background-color 1s ease-out;
+}
+
+/* Ensure all text is visible - uses theme variables */
+p, span, li, small {
+  color: var(--text-secondary);
+  transition: color 1s ease-out;
+}
+
+/* Update offer list items - uses theme variables */
+.offer-list-item {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+  transition: background-color 1s ease-out,
+              border-color 1s ease-out,
+              color 1s ease-out;
+}
+
+/* Update gallery wrapper - uses theme variables */
+.gallery-wraper {
+  background: var(--bg-primary);
+  transition: background-color 1s ease-out;
+}
+
+/* Update number section */
+section.bg-dark h1.text-success {
+  color: var(--accent-primary) !important;
+}
+
+/* Logo hover effect */
+.x-logo {
+  transition: transform 0.3s ease;
+}
+
+.x-logo:hover {
+  transform: scale(1.1);
+}
+
+.x-logo-circle {
+  transition: all 0.3s ease;
+}
+
+.x-logo:hover .x-logo-circle {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .x-logo:hover .x-logo-circle {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Form label styling */
+.form-label {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Login and signup form styling - uses theme variables */
+.login-form,
+.signup-form {
+  background: var(--bg-secondary);
+  padding: 2.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  transition: background-color 1s ease-out,
+              border-color 1s ease-out;
+}
+
+/* Form input focus enhancement - already defined above with theme variables */
+
+/* ============================================*/
+/* Entrance Animations */
+/* ============================================*/
+
+/* Fade in from bottom animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in from left animation */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade in from right animation */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale in animation */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Rotate and fade in */
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+/* Slide up with bounce */
+@keyframes slideUpBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Hero section animations */
+.hero-section h1 {
+  animation: fadeInLeft 1s ease-out;
+}
+
+.hero-section p {
+  animation: fadeInLeft 1.2s ease-out;
+}
+
+.hero-section .btn {
+  animation: fadeInUp 1.4s ease-out;
+}
+
+.hero-section img {
+  animation: fadeInRight 1s ease-out;
+}
+
+/* Section title animations */
+section h1,
+section h2 {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Service cards staggered animation */
+.col-md-4:nth-child(1) {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.col-md-4:nth-child(2) {
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.col-md-4:nth-child(3) {
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+/* Swiper slides animation */
+.swiper-slide {
+  animation: scaleIn 0.6s ease-out;
+}
+
+/* Navbar animation */
+.navbar {
+  animation: slideUpBounce 0.8s ease-out;
+}
+
+/* Logo animation */
+.x-logo {
+  animation: rotateIn 1s ease-out;
+}
+
+/* Blog cards animation */
+.col-md-4.text-center {
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+.col-md-4.text-center:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.col-md-4.text-center:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.col-md-4.text-center:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+/* Review cards animation */
+.swiper-slide.bg-white {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Button hover animations */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Scroll-triggered animations - works both up and down */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.animate-on-scroll.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ensure smooth re-animation when scrolling back up */
+.animate-on-scroll:not(.animated) {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+/* Floating animation for images */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse animation for CTAs */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(255, 107, 107, 0);
+  }
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+/* Stagger animation delays */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+
+/* Fix Log In button - make it work with both themes */
+.btn-light {
+  background: transparent !important;
+  border: 2px solid var(--accent-secondary) !important;
+  color: var(--accent-secondary) !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-light:hover {
+  background: var(--accent-secondary) !important;
+  color: var(--bg-primary) !important;
+  border-color: var(--accent-secondary) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+}
+
+.btn-light.text-black {
+  color: var(--accent-secondary) !important;
+}
+
+.btn-light.text-black:hover {
+  color: var(--bg-primary) !important;
+}
+

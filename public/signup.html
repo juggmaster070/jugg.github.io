@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Sign Up | Jugg</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#000000">
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="vendors/prism/prism.css" rel="stylesheet">
+    <link href="vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/css/theme.css" rel="stylesheet" />
+    <link href="assets/css/user.css" rel="stylesheet" />
+
+    <!-- Apply theme immediately to prevent flash - MUST be first script -->
+    <script>
+      (function() {
+        'use strict';
+        try {
+          // Read theme from localStorage - this is the single source of truth
+          const savedTheme = localStorage.getItem('theme');
+          // Validate and apply theme - must be 'light' or 'dark'
+          if (savedTheme === 'light' || savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            // Store in a global variable to prevent override
+            window.__THEME__ = savedTheme;
+          } else {
+            // No valid theme saved, default to dark
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            window.__THEME__ = 'dark';
+          }
+        } catch (e) {
+          // Fallback if localStorage is not available
+          document.documentElement.setAttribute('data-theme', 'dark');
+          window.__THEME__ = 'dark';
+        }
+      })();
+    </script>
+
+  </head>
+
+
+  <body>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      <nav class="navbar navbar-expand-lg fixed-top navbar-dark" data-navbar-on-scroll="data-navbar-on-scroll">
+        <div class="container"><a class="navbar-brand" href="index.html">
+          <div class="x-logo">
+            <div class="x-logo-circle">
+              <div class="x-logo-x"></div>
+            </div>
+          </div>
+        </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa-solid fa-bars text-white fs-3"></i></button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0 align-items-center">
+              <li class="nav-item"><a class="nav-link" aria-current="page" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" aria-current="page" href="about.html">About</a></li>
+              <li class="nav-item"><a class="nav-link" aria-current="page" href="blogs.html">Blogs</a></li>
+              <li class="nav-item me-3"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <i class="fas fa-moon" id="themeIcon"></i>
+                <span id="themeText">Dark</span>
+              </button></li>
+              <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-light text-black w-md-25 w-50 w-lg-100" aria-current="page" href="login.html">Log In</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="bg-dark py-9" style="min-height: 100vh; display: flex; align-items: center;">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-7">
+              <div class="text-center mb-5">
+                <h1 class="text-white fs-3 fs-lg-4 mb-3">Create Account</h1>
+                <p class="text-gray">Join us and get started</p>
+              </div>
+              <form class="signup-form">
+                <div class="mb-4">
+                  <label for="name" class="form-label text-white mb-2">Name</label>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="mb-4">
+                  <label for="surname" class="form-label text-white mb-2">Surname</label>
+                  <input type="text" class="form-control" id="surname" name="surname" placeholder="Enter your surname" required>
+                </div>
+                <div class="mb-4">
+                  <label for="dob" class="form-label text-white mb-2">Date of birth</label>
+                  <input type="date" class="form-control" id="dob" name="dob" required>
+                </div>
+                <div class="mb-4">
+                  <label for="email" class="form-label text-white mb-2">E-mail</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="mb-4">
+                  <button type="submit" class="btn btn-success w-100">Sign Up</button>
+                </div>
+                <div class="text-center">
+                  <p class="text-gray mb-0">Already have an account? <a href="login.html" class="text-primary text-decoration-none fw-bold">Log In</a></p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="vendors/popper/popper.min.js"></script>
+    <script src="vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="vendors/anchorjs/anchor.min.js"></script>
+    <script src="vendors/is/is.min.js"></script>
+    <script src="vendors/fontawesome/all.min.js"></script>
+    <script src="vendors/lodash/lodash.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="vendors/prism/prism.js"></script>
+    <script src="vendors/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+
+    <!-- Theme Toggle Script -->
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const themeText = document.getElementById('themeText');
+      const html = document.documentElement;
+
+      // Get current theme from HTML attribute (set by inline script) or localStorage
+      let currentTheme = html.getAttribute('data-theme');
+      if (!currentTheme || (currentTheme !== 'light' && currentTheme !== 'dark')) {
+        // Double-check localStorage
+        const savedTheme = localStorage.getItem('theme');
+        currentTheme = (savedTheme === 'light' || savedTheme === 'dark') ? savedTheme : 'dark';
+        html.setAttribute('data-theme', currentTheme);
+      }
+      // Ensure icon matches the current theme
+      updateThemeIcon(currentTheme);
+
+      themeToggle.addEventListener('click', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        html.setAttribute('data-theme-transitioning', 'true');
+        // IMPORTANT: Save to localStorage FIRST, then apply to DOM
+        localStorage.setItem('theme', newTheme);
+        window.__THEME__ = newTheme; // Update global variable
+        html.setAttribute('data-theme', newTheme);
+        updateThemeIcon(newTheme);
+        
+        // Force save and verify
+        setTimeout(function() {
+          localStorage.setItem('theme', newTheme); // Double-save to ensure persistence
+          html.removeAttribute('data-theme-transitioning');
+        }, 1000);
+      });
+
+      function updateThemeIcon(theme) {
+        if (theme === 'light') {
+          themeIcon.classList.remove('fa-moon');
+          themeIcon.classList.add('fa-sun');
+          themeText.textContent = 'Light';
+        } else {
+          themeIcon.classList.remove('fa-sun');
+          themeIcon.classList.add('fa-moon');
+          themeText.textContent = 'Dark';
+        }
+      }
+    </script>
+
+  </body>
+
+</html>
+
